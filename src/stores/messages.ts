@@ -21,6 +21,10 @@ export const useMessagesStore = defineStore('messages', {
       const stateCopy = [...state.messages]
       return stateCopy
     },
+    messagesNormal: (state) => {
+      const stateCopy = [...state.messages]
+      return stateCopy.reverse()
+    },
     messagesByDate: (state) => {
       const stateCopy = [...state.messages]
       return stateCopy.sort((messageA, messageB) => messageB.date - messageA.date)
