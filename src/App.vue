@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { useAuthStore } from './stores/auth'
+import { useUserStore } from './stores/users'
 import { storeToRefs } from 'pinia'
+import { toRefs } from 'vue'
 
 const { logout } = useAuthStore()
 const { user, isauthenticated } = storeToRefs(useAuthStore())
+const { usersList } = toRefs(useUserStore())
 
 const items = [
   {
@@ -13,6 +16,8 @@ const items = [
     clickEvent: logout
   }
 ]
+
+
 </script>
 
 <template>
@@ -24,6 +29,9 @@ const items = [
             <v-avatar class="cursor-pointer" v-bind="props">
               <v-img :src="user.photoUrl" />
             </v-avatar>
+            <!-- <v-avatar v-for="(usersListFor, n) in usersList" :key="n">
+              <v-img :src="usersListFor.photoUrl" />
+            </v-avatar> -->
           </template>
           <v-list>
             <v-list-item

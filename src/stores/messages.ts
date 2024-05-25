@@ -19,7 +19,7 @@ export const useMessagesStore = defineStore('messages', {
   getters: {
     messagesReversed: (state) => {
       const stateCopy = [...state.messages]
-      return stateCopy.reverse()
+      return stateCopy
     },
     messagesByDate: (state) => {
       const stateCopy = [...state.messages]
